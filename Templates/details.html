@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% extends 'nav.html' %}
+{% load static %}
+{% load custom_templatetag %}
+
+
+{% block title %}
+    Details
+{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'details.css' %}">
+    <link rel="stylesheet" href="/Static/src/css/star-rating-svg.css">
+{% endblock style %}
+
+{% block body %}
+<div class="container">
+    <div class="row" style="height: 355px;">
+        <div class="col-lg-6 w3-animate-left" style="background: url('/Media/{{product.picture}}'); background-size: contain; background-repeat: no-repeat;" >
+          
+        </div>
+        <div class="col-lg-6 w3-animate-right">
+            <h1>{{product.name}}</h1>
+            {% csrf_token %}
+            <div id="{{product.slug}}" role="{{rating.rating}}" class="my-rating" style="position: relative; "></div>
+            {% if user.is_authenticated %}
+                <script>document.querySelector(".my-rating").style.zIndex = 2</script>
+            {% else %}
+                <script>document.querySelector(".my-rating").style.zIndex = -1</script>
+            {% endif %}
+               
+            
+            <h4 class="descre">Destroy The Competiton</h4>
+            <p>{{product.desc}}</p>
+            <h4 style="text-transform: uppercase; font-weight: 600; font-size: 19px; margin-top: 10%;">Starting at {{product.price}} $</h4>
+
+        </div>
+    </div>
+
+    
+
+</div>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row ">
+            {% for key  in product.details %}
+        
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-2" >
+                            <img class="icons" src="/Static/icons/svgs/{{key}}.svg" style="height: 50px; width: 50px; " >
+                        </div>
+                        <div class="col-lg-10">
+                            <h2>{{key}}</h2>
+                            <h5>{% dict_convert product.details key %}</h5>
+                        </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+
+{% block script %}
+<script src="/Static/src/jquery.star-rating-svg.js"></script>
+<script>
+
+    current_rating = $(".my-rating")[0].attributes.role.nodeValue
+    $(".my-rating").starRating({
+    starSize: 25,
+    initialRating: current_rating,
+    callback: function(currentRating, $el){
+        // make a server call here
+        $.ajax({
+            type : 'POST',
+            url : "/rating",
+            data : {
+                slug : document.querySelector(".my-rating").id,
+                csrfmiddlewaretoken : document.querySelector("input[name=csrfmiddlewaretoken]").value,
+                rating : currentRating
+            },
+            success:function(reponse){
+
+                console.log("Rating Saved")
+            }
+        })
+    }
+});
+
+</script>
+
+{% endblock script %}

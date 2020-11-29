@@ -1,0 +1,54 @@
+.col-lg-4{
+    padding-right: 5px;
+
+}
+
+hr{
+    width: 106%;
+    right: 8%;
+    position: relative;
+}
+.imger{
+    padding: 16px;
+}
+.details{
+
+    width: 100%;
+    padding: 13px;
+
+}
+
+.details a , .details a:hover {
+    text-align: center;
+    color: #4552af;
+    transition: .4s all;
+    width: 100%;
+    height: 100px;
+    margin-top: 12%;
+}
+.details a:hover {
+    
+    color: darkturquoise !important;
+    text-decoration: none !important;
+   
+}
+
+.headers{
+    margin-bottom: 5%;
+}
+
+.pricer{
+    margin-bottom: 5%;
+    font-weight: bolder;
+
+}
+.last_btn{
+    text-align: center;
+}
+
+button{
+    font-weight: bolder !important;
+    padding: 16px !important;
+    font-size: 21px !important;
+    border: 2px solid black !important;
+}

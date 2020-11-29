@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+{% extends 'nav.html' %}
+{% load static %}
+{% load custom_templatetag %}
+
+{% block title %}
+    Products
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href= "/Static/products.css">
+{% endblock style %}
+
+
+{% block body %}
+<div style="height: 40vh;" >
+
+
+  <div class="swiper-container ">
+      <div class="swiper-wrapper">
+        {% for x in 5|times %}
+          <div class="swiper-slide" > <img src="/Static/pics/{{forloop.counter}}.png" style="width: 100%; height: 100%;" alt=""></div>
+        {% endfor %}
+      
+     
+      </div>
+      <!-- Add Pagination -->
+  
+  </div>
+
+</div>
+
+
+
+<div class="not_container" style="margin-top: 5%;  margin-left: 11%;">
+    
+
+
+    <div class="main_body " style="display: flex;">
+
+      <div class="side_filters w3-animate-left" style="width: 12%; padding-right: 3%; overflow-y: hidden;">
+        <p class="filter_headers">filters  <i onclick="show_filter(0)"  class="fas fa-plus"></i></p>
+
+        <div class="sub_menu_filter">
+          <div class="subfilters">
+            
+            <p class="sub_title">PC CASE</p>
+            
+            <p><input type="checkbox"   id="pc"></p>
+          </div>
+          <div class="subfilters">
+            
+            <p class="sub_title">Laptops</p>
+            <p><input type="checkbox"   id="lp" ></p>
+          </div>
+        </div>
+         
+        
+        
+      </div>
+      <div class="container" style="margin-left: 0;">
+        
+          {% include "products-temp.html" %}
+      
+      </div>
+     
+      
+    </div>
+</div>
+
+<br><br><br><br><br><br><br>
+
+{% endblock body %}
+
+
+
+
+
+
+{% block script %}
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ <script>
+  var type = '{{type}}'
+  var pc_check = $("input")
+
+  if(type != 'all'){
+    get_data(type , 'true')
+  }
+
+  
+
+
+  pc_check.click(function(){
+    var index = pc_check.index(this)
+    var type = pc_check.eq(index).attr('id')
+    var target = pc_check.eq(index).is(":checked")
+    get_data(type , target)
+  })
+
+   f = true
+  function show_filter(index){
+    if(f){
+      document.querySelectorAll(".sub_menu_filter")[index].style.top = "0%"
+      f=false
+    }else{
+      document.querySelectorAll(".sub_menu_filter")[index].style.top = "-30%"
+      f=true
+    }
+    
+  }
+
+
+    var swiper = new Swiper('.swiper-container', {
+      direction: 'vertical',
+      autoplay: {
+          delay: 2000,
+          stopOnLastSlide	: true
+        },
+      pagination: {
+       
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+
+
+
+  function get_data(type,this_target){
+     $.ajax({
+      type : 'GET',
+      url : "/products="+type,
+      data : {
+        target : this_target,
+        type : type
+      },
+    success:function(reponse){
+
+      $(".main_body .row").html(reponse)
+    }
+    })
+  }
+  </script>
+{% endblock script %}

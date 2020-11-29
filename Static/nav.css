@@ -1,0 +1,237 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+   }
+
+
+.navbar-brand{
+    font-size: 31px;
+}
+
+.submenu{
+    FONT-WEIGHT: 600;
+    position: absolute;
+    font-size: 18px;
+    padding: 1% 0;
+    padding-left: 0;
+    top: 100%;
+    left: 22.95%;
+    width: 10.50%;
+    color: white;
+    background-color: #2b2a2a;
+    display: none;
+}
+
+.menu:hover .submenu{
+    display: block;
+    z-index: 400;
+}
+ul{
+    list-style: none;
+}
+nav>ul>li>a{
+    z-index: 4;
+    font-size: 22px;
+    width: max-content;
+    text-decoration: none;
+    height: 100%;
+    color: white;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+
+.mr-auto>.nav-item {
+
+    padding: 3% 7%;
+
+}
+.ml-auto .nav-item{
+    padding: 4.5% 7% ;
+}
+.ml-auto>.nav-item:hover{
+    background-color:grey;
+}
+.mr-auto>.nav-item:hover {
+    
+    background-color:grey;
+}
+
+nav a{
+    color: white;
+    transition: .5s all;
+}
+nav a:hover{
+    color: white;
+    background-color: gray;
+    text-decoration: none;
+}
+
+
+.menu2:hover  .super-submenu{
+    display: block;
+}
+
+.super-submenu{
+
+    position: absolute;
+    padding-left: 0;
+    top: 0%;
+    height: max-content;
+    /* padding: 1% 0; */
+    width: 85%;
+    left: 100%;
+    font-size: 18px;
+    padding: 9.6% 0;
+    background-color: black;
+    display: none; 
+}
+
+
+.navbar-brand{
+    vertical-align: middle;
+    position: absolute;
+    left: 13%;
+    top: -62%;
+    z-index: 0 !important;
+    border-style: none;
+}
+.navbar-brand:hover{
+    background-color: rgba(0, 0, 0, 0.0) ;
+}
+
+/*left sided background*/
+/* background-color: #000000;
+background-image: linear-gradient(270deg, #000000 48%, #657b7d 69%, #202020 89%); */
+
+.right_sided{
+    background-color: #000000;
+    background-image: linear-gradient(90deg, #000000 48%, #657b7d 69%, #000000 89%); 
+}
+
+.left_sided{
+    background-color: #000000;
+    background-image: linear-gradient(270deg, #000000 48%, #657b7d 69%, #000000 89%);
+}
+.our_container{
+    width: 100%;
+
+
+  
+    height: 64vh;
+    background-size: cover;
+    border-bottom: 2px solid;
+    display: flex;
+    align-items: center;
+ 
+
+}
+
+
+.our_container h1{
+    width: inherit;
+    color: white;
+    font-size: 46px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.desc{
+    font-family: revert; 
+    color: white;
+    width: inherit;
+    text-transform: uppercase;
+}
+
+.right-div{
+
+    border-radius: 14px;
+    position: relative;
+    right: -60%;
+    width: 62%;
+    transition: .5s all;
+
+}
+
+.left-div{
+    position: relative; 
+
+    left: -40%; 
+    top: 4%;
+    transition: .5s all;
+}
+
+.third_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    
+}
+
+.merch{
+    background: url(/Static/icons/original.jpg);;
+   
+    border-right: 2px solid;
+    border-color: #646464 !important;
+    height: 49vh;
+    background-size: cover !important;
+    text-align: center;
+    color: white;
+}
+
+.merch > div{
+    background-color: #000000c9; 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.merch:nth-child(2){
+    background: url(/Static/icons/dektop.jpg);
+  
+}
+
+.merch:nth-child(3){
+    background: url(/Static/icons/deals.png);
+
+}
+
+
+
+.merch h1{
+
+    color: rgb(102, 100, 100);
+    z-index: 4;
+    font-size: 70px;
+    font-family: sans-serif;
+    
+}
+.merch:hover{
+
+    text-decoration: none;
+    
+}
+
+.merch:hover > div h1{
+
+    color: white !important;
+    
+}
+
+ img:nth-child(0) , img:nth-child(1){
+    width: 100%;
+    height: 100%;
+}
+@keyframes animate_zoom{
+    from  {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}

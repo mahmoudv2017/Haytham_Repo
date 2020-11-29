@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% extends 'nav.html' %}
+
+{% block title %}
+
+    Login Or Register
+
+{% endblock title %}
+
+{% block style %}
+
+    <link rel="stylesheet" href="/Static/acconts.css">
+
+{% endblock style %}
+
+{% block body %}
+
+    <div class="main_body">
+
+
+        <div class="w3-animate-left">
+            <h1 style="margin-bottom: 16%;">LOGIN</h1>
+            <div class="border">
+
+            </div>
+            {% if msg %}
+                <p style="position: relative; top: -11%; left: -4%; color: red;">*{{msg}}</p>
+            {% endif %}
+            
+            <form id="login_form" method="POST" action="/logme" >
+             
+                <div class="labels" >
+                    {% csrf_token %}
+                    <label for="username">username</label>
+                    <br><br>
+                    <label for="password">password</label>
+                
+                    <br><br>
+                    <input value="LOG IN" type="submit" class="btn btn-primary" style="left: 15%; width: 20%; position: absolute;">
+                  
+                </div>
+                <div class="inputs">
+                    {% csrf_token %}
+                    
+                    <input type="text" id="username" required name="username" >
+                    <br><br>
+                    
+            
+                    
+                    <input type="password" id="password" name="password" required >
+                    <br>
+                
+        
+                    
+                </div>
+
+                
+                
+                
+               
+            </form>
+           
+
+        </div>
+        <div class="w3-animate-right">
+            <h1 style="margin-bottom: 16%;">Sign Up</h1>
+
+
+
+
+            <form method="POST" action="/register"  style="display: flex; transform: scale(1.5);">
+             
+                <div class="labels">
+                    {% csrf_token %}
+                    <label for="username">username</label>
+                    <br><br>
+                    <label for="password">password</label>
+                    <br><br>
+                    <label for="Confirm_Password">Confirm Password</label>
+                    <br><br>
+                    <label for="email">Email</label>
+                    <br><br><br><br>
+                    <input type="submit" class="btn btn-primary" style="left: 15%; width: 20%; bottom:4%; position: absolute;">
+                  
+                </div>
+                <div class="inputs">
+                    {% csrf_token %}
+                    
+                    <input type="text" name="username" required id="id_username">
+                    <br><br>
+                    
+                    <input type="password" name="Confirm_Password" required id="id_Confirm_Password">
+                    <br><br>
+                    
+                    <input type="password" name="password" required id="id_password">
+                    <br><br>
+                
+                    <input type="email" name="email" required id="id_email">
+                    
+                </div>
+
+                
+                
+                
+               
+            </form>
+        </div>
+    </div>
+
+
+
+
+{% endblock body %}
+
+
+{% block script %}
+
+
+
+{% endblock script %}

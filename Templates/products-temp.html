@@ -1,0 +1,27 @@
+<div class="row">
+    {% for x in data %}
+        <div class="col-lg-3" style="margin-bottom: 10%;" >
+
+            <div class="card" style=" height: 16vh; border: none; margin: 0;">
+            <img style=" width: 80%; align-self: center;height: 100%; z-index: 1;" src="{{x.picture}}" class="card-img-top" alt="...">
+            <div class="my_cover" >
+                
+                
+                <div class="side_buttons ">
+                <a class="btn btn-primary " ><i  class="fas fa-shopping-cart"></i></a>
+                <a class="btn btn-primary " ><i   class="far fa-heart"></i></a>
+                </div>
+                <div style=" flex-grow: 1;">
+                <a class="btn btn-outline-danger laster" href="/product={{x.slug}}" ><i  class="far fa-eye"></i></a>
+                </div>
+            
+            </div>
+            
+            <div class="card-body">
+             <a href="/product={{x.slug}}"> <h5  class="card-title">{{x.name}}</h5></a>
+
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

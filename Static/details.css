@@ -1,0 +1,18 @@
+.icons{
+    margin-top: 72%;
+}
+
+.descre{
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: 600;
+
+    margin: 5% 0 4% 0;
+}
+
+
+
+.jumbotron .row{
+    animation-name: animate_zoom;
+    animation-duration: .8s;
+}

@@ -1,0 +1,32 @@
+.main_body{
+    
+    height: 100vh;
+    padding-top: 3%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-left: 20%;
+    background: url(/Static/backgroudns/back.jpg);
+    background-size: cover;
+}
+#login_form{
+
+    display: flex; 
+    transform: scale(1.5);
+}
+
+ .border{
+
+    border : 1px outset #b5a7a7;
+    position: absolute;
+    right: 42%;
+    top: 3%;
+    height: 57vh;
+
+} 
+h1 ,label{
+    color: white;
+}
+
+.labels{
+    margin-right: 4%;
+}

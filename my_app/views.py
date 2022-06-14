@@ -146,12 +146,14 @@ def details(req,slug):
             print("no rating here")
     return render(req , "details.html" , {"product" : models.products.objects.filter(slug = slug).get() , "rating" : rating })
 
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 def products(req,typer="all"):
     
     reponse = urllib.request.urlopen("http://127.0.0.1:8000/api/products_api/")
     
    
-    if(req.is_ajax()):
+    if(is_ajax(req)):
 
 
         if(req.GET.get("target") == "true"):
